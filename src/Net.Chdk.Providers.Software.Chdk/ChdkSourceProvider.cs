@@ -11,6 +11,7 @@ namespace Net.Chdk.Providers.Software.Chdk
         private const string Trunk = "trunk";
         private const string DeSourceName = "CHDK_DE";
 
+        protected override string CategoryName => "PS";
         protected override string ProductName => "CHDK";
 
         protected override string GetChannelName(SoftwareProductInfo product)
