@@ -2,6 +2,7 @@
 using System.Globalization;
 using Net.Chdk.Model.Software;
 using Net.Chdk.Providers.Software.Product;
+using Microsoft.Extensions.Logging;
 
 namespace Net.Chdk.Providers.Software.Chdk
 {
@@ -10,6 +11,11 @@ namespace Net.Chdk.Providers.Software.Chdk
         private const string Release = "release";
         private const string Trunk = "trunk";
         private const string DeSourceName = "CHDK_DE";
+
+        public ChdkSourceProvider(ILoggerFactory loggerFactory)
+            : base(loggerFactory.CreateLogger<ChdkSourceProvider>())
+        {
+        }
 
         protected override string CategoryName => "PS";
         protected override string ProductName => "CHDK";
