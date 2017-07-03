@@ -17,8 +17,9 @@ namespace Net.Chdk.Providers.Software.Chdk
         {
         }
 
+        public override string ProductName => "CHDK";
+
         protected override string CategoryName => "PS";
-        protected override string ProductName => "CHDK";
 
         protected override string GetChannelName(SoftwareProductInfo product)
         {
