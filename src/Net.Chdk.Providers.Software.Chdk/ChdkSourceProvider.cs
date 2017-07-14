@@ -1,8 +1,9 @@
-﻿using System;
-using System.Globalization;
+﻿using Microsoft.Extensions.Logging;
 using Net.Chdk.Model.Software;
+using Net.Chdk.Providers.Product;
 using Net.Chdk.Providers.Software.Product;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Globalization;
 
 namespace Net.Chdk.Providers.Software.Chdk
 {
@@ -12,14 +13,12 @@ namespace Net.Chdk.Providers.Software.Chdk
         private const string Trunk = "trunk";
         private const string DeSourceName = "CHDK_DE";
 
-        public ChdkSourceProvider(ILoggerFactory loggerFactory)
-            : base(loggerFactory.CreateLogger<ChdkSourceProvider>())
+        public ChdkSourceProvider(IProductProvider productProvider, ILoggerFactory loggerFactory)
+            : base(productProvider, loggerFactory.CreateLogger<ChdkSourceProvider>())
         {
         }
 
-        public override string ProductName => "CHDK";
-
-        protected override string CategoryName => "PS";
+        protected override string ProductName => "CHDK";
 
         protected override string GetChannelName(SoftwareProductInfo product)
         {
