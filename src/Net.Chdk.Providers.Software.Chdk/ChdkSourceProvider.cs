@@ -33,8 +33,8 @@ namespace Net.Chdk.Providers.Software.Chdk
 
         protected override CultureInfo GetLanguage(SoftwareSourceInfo source)
         {
-            if (source.Name.Equals(DeSourceName, StringComparison.InvariantCulture))
-                return CultureInfo.GetCultureInfo("de");
+            if (source.Name.Equals(DeSourceName, StringComparison.Ordinal))
+                return new CultureInfo("de");
             return null;
         }
     }
